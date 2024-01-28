@@ -5,7 +5,7 @@ try {
     const destroyAction = core.getInput('cdk-post-command');
     if(!destroyAction) {
         core.setFailed('cdk-post-command input is required');
-        return;
+        process.exit(1);
     }
     const command = spawnSync(
         'npm',

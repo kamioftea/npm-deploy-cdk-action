@@ -5,7 +5,7 @@ try {
     const deployAction = core.getInput('cdk-command');
     if(!deployAction) {
         core.setFailed('cdk-command input is required');
-        return;
+        process.exit(1);
     }
     const command = spawnSync(
         'npm',
