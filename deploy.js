@@ -1,6 +1,5 @@
-const core = require('@actions/core');
-const {spawnSync } = require('node:child_process');
-
+import core from '@actions/core';
+import {spawnSync} from 'node:child_process';
 
 try {
     const deployAction = core.getInput('cdk-command');
