@@ -3,14 +3,12 @@ import {spawnSync} from 'node:child_process';
 
 try {
     const destroyAction = core.getInput('cdk-post-command');
-    if(!destroyAction) {
-        core.setFailed('cdk-post-command input is required');
-        process.exit(1);
-    }
+    const cwd = core.getInput('working-directory');
+
     const command = spawnSync(
         'npm',
         ['run', destroyAction],
-        {stdio: 'inherit', shell: true}
+        {stdio: 'inherit', shell: true, cwd}
     );
 
     if (command.status !== 0) {

@@ -3,14 +3,12 @@ import {spawnSync} from 'node:child_process';
 
 try {
     const deployAction = core.getInput('cdk-command');
-    if(!deployAction) {
-        core.setFailed('cdk-command input is required');
-        process.exit(1);
-    }
+    const cwd = core.getInput('working-directory');
+
     const command = spawnSync(
         'npm',
         ['run', deployAction],
-        {stdio: 'inherit', shell: true}
+        {stdio: 'inherit', shell: true, cwd}
     );
 
     if (command.status !== 0) {

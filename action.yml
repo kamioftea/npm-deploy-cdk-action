@@ -9,6 +9,10 @@ inputs:
     description: 'The command to run to destroy the stack'
     required: false
     default: 'destroy:staging'
+  working-directory:
+    description: 'The working directory to run the command in'
+    required: false
+    default: '.'
 
 runs:
   using: 'node20'
