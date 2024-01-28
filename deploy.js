@@ -1,9 +1,10 @@
 import core from '@actions/core';
 import {spawnSync} from 'node:child_process';
+import {resolve} from 'node:path';
 
 try {
     const deployAction = core.getInput('cdk-command');
-    const cwd = core.getInput('working-directory');
+    const cwd = resolve(core.getInput('working-directory'));
 
     const command = spawnSync(
         'npm',
