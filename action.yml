@@ -1,0 +1,18 @@
+name: Deploy Staging CDK with NPM
+description: 'Deploys CDK with NPM with a post action to destroy the stack'
+inputs:
+  cdk-command:
+    description: 'The command to run to deploy the stack'
+    required: false
+    default: 'deploy:staging'
+  cdk-post-command:
+    description: 'The command to run to destroy the stack'
+    required: false
+    default: 'destroy:staging'
+
+runs:
+  using: 'node20'
+  main: 'deploy.js'
+  post: 'destroy.js'
+
+
