@@ -3,7 +3,7 @@ import {spawnSync} from 'node:child_process';
 import {resolve} from 'node:path';
 
 try {
-    if(core.getInput('destroy') === 'false') {
+    if(core.getInput('destroy-stack-on-completion') === 'false') {
         console.log("Action has been configured not to destroy the staging stack, skipping...")
         return
     }
