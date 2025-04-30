@@ -13,6 +13,10 @@ inputs:
     description: 'The working directory to run the command in'
     required: false
     default: '.'
+  destroy-stack-on-completion:
+    description: 'A flag to control if the staging stack is destroyed after the workflow completes'
+    required: false
+    default: 'true'
 
 runs:
   using: 'node20'

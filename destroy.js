@@ -3,6 +3,11 @@ import {spawnSync} from 'node:child_process';
 import {resolve} from 'node:path';
 
 try {
+    if(core.getInput('destroy') === 'false') {
+        console.log("Action has been configured not to destroy the staging stack, skipping...")
+        return
+    }
+
     const destroyAction = core.getInput('cdk-post-command');
     const cwd = resolve(core.getInput('working-directory'));
 
